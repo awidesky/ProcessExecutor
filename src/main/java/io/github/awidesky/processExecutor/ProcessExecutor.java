@@ -20,7 +20,7 @@ import io.github.awidesky.guiUtil.SwingDialogs;
 
 
 /**
- * Executes third party program & commands
+ * Executes third party program and commands
  * */
 public class ProcessExecutor {
 	
