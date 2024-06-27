@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.awidesky</groupId>
 	<artifactId>ProcessExecutor</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2</version>
 	<name>ProcessExecutor</name>
 	<description>Simple utility that simplify running external process in Java</description>
 	<url>https://github.com/awidesky/ProcessExecutor</url>
