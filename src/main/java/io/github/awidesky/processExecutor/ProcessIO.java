@@ -40,4 +40,13 @@ public class ProcessIO {
 		if(stdin != null) stdin.accept(bw);
 	}
 	
+	public void setStdout(Consumer<BufferedReader> stdout) {
+		this.stdout = stdout;
+	}
+	public void setStderr(Consumer<BufferedReader> stderr) {
+		this.stderr = stderr;
+	}
+	public void setStdin(Consumer<BufferedWriter> stdin) {
+		this.stdin = stdin;
+	}
 }
