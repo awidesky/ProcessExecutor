@@ -156,4 +156,8 @@ public class ProcessIO {
 		});
 		return this;
 	}
+	public ProcessIO setStdin(Stream<String> s) {
+		setPrintStdin(pw -> s.forEach(pw::println));
+		return this;
+	}
 }
