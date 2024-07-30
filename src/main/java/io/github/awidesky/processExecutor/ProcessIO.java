@@ -50,14 +50,32 @@ public class ProcessIO {
 	
 	public ProcessIO stdout(InputStream is) {
 		stdout.accept(is);
+		try {
+			is.close();
+		} catch (IOException e) {
+			// TODO describe default error handling behavior 
+			e.printStackTrace();
+		}
 		return this;
 	}
 	public ProcessIO stderr(InputStream is) {
 		stderr.accept(is);
+		try {
+			is.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return this;
 	}
 	public ProcessIO stdin(OutputStream os) {
 		if(stdin != null) stdin.accept(os);
+		try {
+			os.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return this;
 	}
 	
@@ -135,16 +153,16 @@ public class ProcessIO {
 	 */
 	public ProcessIO setPrintStdin(Consumer<PrintWriter> stdin) {
 		this.stdin = is -> {
-			stdin.accept(new PrintWriter(new OutputStreamWriter(is, NATIVECHARSET)));
+			stdin.accept(new PrintWriter(new OutputStreamWriter(is, NATIVECHARSET), true));
 		};
 		return this;
 	}
 	public ProcessIO setStdout(Logger logger) {
-		setBufferedStdout(br -> br.lines().forEach(logger::log));
+		setBufferedStdout(br -> br.lines().forEach(logger::info));
 		return this;
 	}
 	public ProcessIO setStderr(Logger logger) {
-		setBufferedStderr(br -> br.lines().forEach(logger::log));
+		setBufferedStderr(br -> br.lines().forEach(logger::error));
 		return this;
 	}
 	/**
