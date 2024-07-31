@@ -125,7 +125,7 @@ public class ProcessIO {
 			try (BufferedWriter br = new BufferedWriter(new OutputStreamWriter(is, NATIVECHARSET))) {
 				stdin.accept(br);
 			} catch (IOException e) {
-				SwingDialogs.error("Unable to close process input stream!", "%e%", e, false);
+				SwingDialogs.error("Unable to close process input stream!", "%e%", e, false); //TODO : change to printstacktrace to all
 			}
 		};
 		return this;
@@ -177,5 +177,9 @@ public class ProcessIO {
 	public ProcessIO setStdin(Stream<String> s) {
 		setPrintStdin(pw -> s.forEach(pw::println));
 		return this;
+	}
+	
+	public Charset getNativeChearset() {
+		return NATIVECHARSET;
 	}
 }
