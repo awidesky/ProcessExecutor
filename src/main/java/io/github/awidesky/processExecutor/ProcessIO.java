@@ -179,7 +179,7 @@ public class ProcessIO {
 		return this;
 	}
 	
-	public Charset getNativeChearset() {
+	public static Charset getNativeChearset() {
 		return NATIVECHARSET;
 	}
 }
