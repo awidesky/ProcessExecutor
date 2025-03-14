@@ -41,6 +41,10 @@ public class ProcessExecutor {
 		return new ProcessHandle(p, f1, f2, f3); 
 	}
 	
+	public static void shutdown() {
+		executorService.shutdown();
+	}
+	
 	public static class ProcessHandle {
 		private final Process proc;
 		private final Future<?> stdout;
